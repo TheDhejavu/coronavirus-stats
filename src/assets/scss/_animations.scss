@@ -1,0 +1,248 @@
+/**
+* This is animate.css's base css classes
+ */
+ .animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+  }
+  
+  .animated.infinite {
+    animation-iteration-count: infinite;
+  }
+  
+  .animated.delay-1s {
+    animation-delay: 1s;
+  }
+  
+  .animated.delay-2s {
+    animation-delay: 2s;
+  }
+  
+  .animated.delay-3s {
+    animation-delay: 3s;
+  }
+  
+  .animated.delay-4s {
+    animation-delay: 4s;
+  }
+  
+  .animated.delay-5s {
+    animation-delay: 5s;
+  }
+  
+  .animated.fast {
+    animation-duration: 800ms;
+  }
+  
+  .animated.faster {
+    animation-duration: 500ms;
+  }
+  
+  .animated.slow {
+    animation-duration: 2s;
+  }
+  
+  .animated.slower {
+    animation-duration: 3s;
+  }
+  
+  @media (print), (prefers-reduced-motion: reduce) {
+    .animated {
+      animation-duration: 1ms !important;
+      transition-duration: 1ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+  
+  /** ---------------------------
+  Add your own GENERIC animations (that you think will be needed by others) here, or copy the classes and animations you need from animate.css
+  */
+  
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translate3d(-100%, 0, 0);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 100%, 0);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  .fadeInUp {
+    animation-name: fadeInUp;
+  }
+  
+  .fadeInLeft {
+    animation-name: fadeInLeft;
+  }
+  
+  @keyframes pulse {
+    from {
+      transform: scale3d(1.2, 1.2, 1.2);
+    }
+  
+    to {
+      transform: scale3d(1, 1, 1);
+    }
+  }
+  
+  .pulse {
+    animation-name: pulse;
+  }
+  
+  /** zoomIn
+  */
+  @keyframes zoomIn {
+    from {
+      opacity: 0;
+      transform: scale3d(0.3, 0.3, 0.3);
+    }
+  
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .zoomIn {
+    animation-name: zoomIn;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .fadeIn {
+    animation-name: fadeIn;
+  }
+  
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+  
+    to {
+      opacity: 0;
+    }
+  }
+  @keyframes fadeInRight {
+    from {
+      transform: translate3d(100%, 0, 0);
+      opacity: 0;
+    }
+  
+    to {
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+    }
+  }
+  
+  .fadeInRight {
+    animation-name: fadeInRight;
+  }
+  
+  @keyframes slideDown {
+    from {
+      transform: translateY(-100%);
+    }
+  
+    to {
+      transform: translateY(0);
+    }
+  }
+  
+  .slideDown {
+    animation-name: slideDown;
+  }
+  
+  @mixin make-transitions($base, $animationDuration: 1s) {
+    // We'll make a single rule for all transitions that
+    // sets the animation duration. This is basically the
+    // stock 'animate' class from Animate.css.
+    // $classesJoin: replace('${names}', ', ', '-enter-active, .${base}', g);
+  
+    .#{$base}-enter-active,
+    .#{$base}In,
+    .#{$base}-leave-active,
+    .#{$base}Out {
+      animation-duration: $animationDuration;
+      animation-fill-mode: both;
+    }
+  
+    // Entrance/Exit for the base class
+    .#{$base}-enter-active,
+    .#{$base}In {
+      animation-name: #{$base}In;
+    }
+  
+    .#{$base}-leave-active,
+    .#{$base}Out {
+      animation-name: #{$base}Out;
+    }
+  }
+  
+  // loading spinner
+  #circular-spinner-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(#0267ff, 0.05);
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #circular-spinner {
+    display: block;
+    height: 50px;
+    width: 50px;
+    border: 4px #0267ff solid;
+    border-top: 4px #fff solid;
+    border-right: 4px #fff solid;
+    border-bottom: 4px #fff solid;
+    border-radius: 50%;
+    -webkit-animation: spin3 1s infinite linear;
+    animation: spin3 1s infinite linear;
+  }
+  
+  @keyframes spin3 {
+    from {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+  
+    to {
+      -webkit-transform: rotate(359deg);
+      transform: rotate(359deg);
+      -webkit-transform: rotate(359deg);
+      transform: rotate(359deg);
+    }
+  }
+  
